@@ -22,15 +22,14 @@
             <table class="table table-responsive table-striped table-sm">
         <thead>
             <tr class="bg-warning">
-                <th>id</th>
-                <th>diagnosis</th>
-                <th>detail</th>
-                <th>active</th>
-                <th>created</th>
-                <th>modified</th>
-                <th>user_id</th>
-                <th>patient_id</th>
-                <th>treatment_id</th>
+                <th>Diagnostico</th>
+                <th>Detalle</th>
+                <th>Estado del Paciente</th>
+                <th>Creado</th>
+                
+                <th>Atendido por:</th>
+                <th>Consulta del paciente</th>
+                <th>Tratamiento asignado</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -38,12 +37,14 @@
              <?php foreach ($consultations as $consultation): ?>
             <tr>
                
-                <td><?= $this->Number->format($consultation->id) ?></td>
                 <td><?= h($consultation->diagnosis) ?></td>
                 <td><?= h($consultation->detail) ?></td>
-                <td><?= h($consultation->active) ?></td>
-                <td><?= h($consultation->created) ?></td>
-                <td><?= h($consultation->modified) ?></td>
+                <td><?= $consultation->active ? __('Activo') : __('No Activo'); ?></td>
+               <td><?= h($consultation->created) ?></td>
+                
+                <td><?= $consultation->has('user') ? $this->Html->link($consultation->user->full_name, ['controller' => 'Users', 'action' => 'view', $consultation->user->id]) : '' ?></td>
+                <td><?= $consultation->has('patient') ? $this->Html->link($consultation->patient->full_name, ['controller' => 'Patients', 'action' => 'view', $consultation->patient->id]) : '' ?></td>
+                <td><?= $consultation->has('treatment') ? $this->Html->link($consultation->treatment->name, ['controller' => 'Treatments', 'action' => 'view', $consultation->treatment->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(('<i class="fa fa-eye" aria-hidden="true"></i>'), ['action' => 'view', $consultation->id] ,['class'=>'btn btn-info','escape'=>false]) ?>
                     <?= $this->Html->link(('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'), ['action' => 'edit', $consultation->id],['class'=>'btn btn-success','escape'=>false]) ?>

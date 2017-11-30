@@ -3,37 +3,84 @@
  * @var \App\View\AppView $this
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $consultation->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $consultation->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Consultations'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Patients'), ['controller' => 'Patients', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Patient'), ['controller' => 'Patients', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Treatments'), ['controller' => 'Treatments', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Treatment'), ['controller' => 'Treatments', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="consultations form large-9 medium-8 columns content">
-    <?= $this->Form->create($consultation) ?>
-    <fieldset>
-        <legend><?= __('Edit Consultation') ?></legend>
-        <?php
-            echo $this->Form->control('diagnosis');
-            echo $this->Form->control('detail');
-            echo $this->Form->control('active');
-            echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('patient_id', ['options' => $patients]);
-            echo $this->Form->control('treatment_id', ['options' => $treatments]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<?php
+/**
+ * @var \App\View\AppView $this
+ */
+?>
+  <div class="container-fluid" id="contenidousuarios">
+      <div class="row">
+        <div class="col-8">
+               <?= $this->Form->create($consultation) ?>
+                 <!--Panel-->
+                <div class="card" id="tarjeta">
+                    <h3 id="titulo" class="card-header deep-orange lighten-1 white-text">Registrar nueva consulta.</h3>
+                    <div class="card-body" id="cuerpo">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Diagnostico</label>
+                                    <?= $this->Form->input('diagnosis', ['type'=>'textarea','class' => 'form-control', 'label' => false]);?>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Detalle</label>
+                                    <?= $this->Form->input('detail', ['type'=>'textarea','class' => 'form-control', 'label' => false]);?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-check">
+                                        <label class="form-check-label">
+                                        <?= $this->Form->input('active', ['type'=>'checkbox','class' => 'form-check-input','label' => false]);?> Estado del paciente.
+                                        </label>
+                                    </div> 
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Atendido por</label>
+                                    <?= $this->Form->input('user_id',['multiple class' => 'form-control', 'label' => false],['options' => $users]);?>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Consulta del paciente</label>
+                                    <?= $this->Form->input('patient_id',['multiple class' => 'form-control', 'label' => false],['options' => $patients]);?>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>Tratamiento</label>
+                                    <?= $this->Form->input('treatment_id',['multiple class' => 'form-control', 'label' => false],['options' => $treatments]);?>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 
+                <!--/.Panel-->
+        </div>
+       
+        <br>
+         <center> <?= $this->Form->button('Registrar', ['class' => 'btn btn-info']) ?> </center>
+                                <?= $this->Form->end() ?> <br>
+    
+
+
+
+
+
+
+
+
+
+
+
