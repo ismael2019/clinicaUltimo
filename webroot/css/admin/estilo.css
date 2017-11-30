@@ -1,0 +1,104 @@
+#imagen{
+  width: 50%;
+  border-radius: 70%;
+  border: 6px solid #FFFFFF;
+  opacity: 0.7;
+}
+#imagen:hover{
+  opacity:0.9;
+  border: 6px solid #F9FF52;
+}
+#mainNav{
+  background: #000000;
+}
+#mainNav a{
+  color: #FFFFFF;
+}
+
+#exampleAccordion li{
+  background: #000000;
+}
+#exampleAccordion li a:hover{
+  background: #575757;
+}
+
+#texto{
+  color: #FFFFFF;
+}
+#navbarResponsive #exampleAccordion li a i{
+  color: #14F7FF;
+  font-size: 125%;
+}
+#navbarResponsive #exampleAccordion li a,span{
+  color: #FFFFFF;
+}
+.dropdown-menu{
+  color:#FFFFFF;
+  background: #000000;
+}
+#pie{
+  background: #000000;
+}
+#pieletra{
+  color: #FFFFFF;
+}
+#fondito{
+  background: #000000;
+
+}
+
+
+.imagen{
+  background: #000000;
+}
+#boton{
+    color: #FFFFFF;
+    font-size: 130%;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+}
+#boton:hover{
+  background: #14F7FF;
+}
+#titulo{
+  background: #00B8CC;
+  color:#000000;
+}
+#cuerpo{
+  background: #09CCC6;
+}
+#tarjeta{
+  width: 150%;
+}
+#selecciones{
+  width: 150%;
+}
+#tituloSelec{
+  background: #E9D220;
+}
+#contenido{
+  background: #09CCC6;
+}
+#tabla{
+  background: #14F7FF;
+}
+#titulotabla{
+  background: #FFFFFF;
+}
+#tituloproblemas{
+  background: #FFFB02;
+  color: #000000;
+}
+#cuerpoproblemas{
+  background: #14F7FF;
+}
+#tituloestado{
+  background: #03C200;
+}
+#cuerpoestado{                                           -
+  background: #4FFF4D;
+}
+#cuerpousuarios{
+  background: #CC0000;
+}
+
